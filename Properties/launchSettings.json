@@ -1,0 +1,35 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iis": {
+      "applicationUrl": "http://localhost/StreamWebPage",
+      "sslPort": 0
+    },
+    "iisExpress": {
+      "applicationUrl": "http://localhost:53129",
+      "sslPort": 44300
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "VaultUri": "https://streamwebpagevault.vault.azure.net/",
+        "AZURE_USERNAME": "sean.davitt@tylertech.com",
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      }
+    },
+    "StreamWebPage": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "VaultUri": "https://streamwebpagevault.vault.azure.net/",
+        "AZURE_USERNAME": "sean.davitt@tylertech.com",
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      },
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+    }
+  }
+}

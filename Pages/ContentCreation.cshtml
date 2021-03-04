@@ -1,0 +1,38 @@
+﻿@page
+@model StreamWebPage.Pages.ContentCreationModel
+@{ ViewData["Title"] = "Content Creation"; }
+<body>
+    <div class="container-fluid">
+        <div class="flex-xl-row">
+            <div class="jumbotron bg-light">
+                <h1 class="text-dark"> Twitch Stream</h1>
+            </div>
+            <!-- Add a placeholder for the Twitch embed -->
+            <div id="twitch-embed"></div>
+
+            <!-- Load the Twitch embed script -->
+            <script src="https://embed.twitch.tv/embed/v1.js"></script>
+
+            <iframe src="https://discord.com/widget?id=399244583520960513&theme=dark" width="350" height="500" allowtransparency="true" frameborder="1"
+                    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+            </iframe>
+            <!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. -->
+            <script type="text/javascript">new Twitch.Embed("twitch-embed", {
+                    width: 1860,
+                    height: 1080,
+                    allowfullscreen: true,
+
+                    channel: "davasorus",
+                    // only needed if your site is also embedded on embed.example.com and othersite.example.com
+
+                });</script>
+        </div>
+        <div class="jumbotron bg-light">
+            <h1>YouTube Channel</h1>
+        </div>
+        <div>
+            <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+            <div class="elfsight-app-2ea4691c-101b-4a5b-911e-0dc393c7a8fa"></div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "DefaultConnection",
+      "suggestion": "true",
+      "ignored": "true"
+    },
+    "secrets1": {
+      "type": "secrets",
+      "connectionId": "VaultUri"
+    },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "DefaultConnection"
+    },
+    "mssql3": {
+      "type": "mssql",
+      "connectionId": "AZUREDBCONN-User"
+    },
+    "storage1": {
+      "type": "storage",
+      "connectionId": "AZUREDBCONN-Storage"
+    }
+  }
+}

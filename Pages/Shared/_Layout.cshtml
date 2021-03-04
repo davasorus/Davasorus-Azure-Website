@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - StreamWebPage</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/css/dark-mode.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <script src="https://kit.fontawesome.com/1aa0ef6043.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar text-sm-left navbar-expand-sm navbar-toggleable-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand text-light" asp-area="" asp-page="/Index"><i class="fas fa-home"></i> Davasorus</a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarcollapse"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon text-light"><i class="fas fa-bars"></i></span>
+                </button>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" id="navbar-collapse">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-item text-light" asp-area="" asp-page="/Index"><i class="fas fa-home"></i>Home </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-item text-light" href="/SocialMedia"><i class="fas fa-hashtag"></i> Social Media </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-item text-light" href="/ContentCreation"><i class="fab fa-twitch"></i> Content Creation </a>
+                        </li>
+
+                        <li class="dropdown nav-item">
+                            <a class="dropdown-toggle nav-item text-light" data-toggle="dropdown" href="#">
+                                <i class="fas fa-toolbox"></i>Administration
+                            </a>
+                            <ul class="dropdown-menu bg-dark">
+                                <li>
+                                    <a class="text-light" href="/StreamingDBUpdate"><i class="fas fa-table"></i> Streaming Data Updating </a>
+                                </li>
+
+                                <li>
+                                    <a class="text-light" href="/NotFound"><i class="fas fa-users-cog"></i> Users </a>
+                                </li>
+
+                                <li>
+                                    <a class="text-light" href="/NotFound"><i class="fas fa-wrench"></i> Something </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="custom-control custom-switch">
+
+                <input type="checkbox" class="custom-control-input" id="darkSwitch">
+
+                <label class="custom-control-label" style="color:orangered" for="darkSwitch">Night Mode</label>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer bg-light">
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <div class="container-fluid">
+            &copy; 2020 - StreamWebPage </br>
+            <a><h5>Contact Me by</h5></a>
+            <a href="mailto:davasorus.gaming@gmail.com">Email </a> <a href="https://twitter.com/messages/compose?recipient_id=851363438"
+                                                                      class="twitter-dm-button" data-size="large" data-screen-name="Davasorus" data-show-count="false">Twitter DM</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/dark-mode-switch.min.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

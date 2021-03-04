@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/streamwebpagedbserver/databases/StreamingDB",
+      "type": "mssql.azure",
+      "connectionId": "DefaultConnection",
+      "secretStore": "AzureKeyVault"
+    },
+    "secrets1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.KeyVault/vaults/StreamWebPagevault",
+      "type": "secrets.keyVault",
+      "connectionId": "VaultUri",
+      "secretStore": null
+    },
+    "mssql3": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/streamwebpagedbserver/databases/StreamWebPage_db",
+      "type": "mssql.azure",
+      "connectionId": "AZUREDBCONN-User",
+      "secretStore": "AzureKeyVault"
+    },
+    "storage1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/streamwebpagestorage",
+      "type": "storage.azure",
+      "connectionId": "AZUREDBCONN-Storage",
+      "secretStore": "AzureKeyVault"
+    }
+  }
+}
