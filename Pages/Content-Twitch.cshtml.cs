@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace StreamWebPage.Pages
 {
-    public class ContentCreationModel : PageModel
+    public class ContentCreationTwitchModel : PageModel
     {
         public void OnGet()
         {
