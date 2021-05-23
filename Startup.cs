@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StreamWebPage.Data;
+using StreamWebPage.IServices;
+using StreamWebPage.Models;
 using StreamWebPage.Services;
 using System;
 
@@ -55,6 +57,12 @@ namespace StreamWebPage
                 builder.AddBlobServiceClient(Configuration["ConnectionStrings:AZUREDBCONN-Storage:blob"], preferMsi: true);
                 builder.AddQueueServiceClient(Configuration["ConnectionStrings:AZUREDBCONN-Storage:queue"], preferMsi: true);
             });
+
+            services.AddHttpClient();
+            services.AddDbContext<StreamingDBContext>(options =>
+            options.UseSqlServer(Configuration["DefaultConnection"]));
+
+            services.AddTransient<IAppPubService, AppPubService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
