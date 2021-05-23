@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace StreamWebPage.Models
+﻿namespace StreamWebPage.Models
 {
     public partial class GameType
     {
