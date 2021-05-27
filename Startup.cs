@@ -48,24 +48,6 @@ namespace StreamWebPage
                 o.SlidingExpiration = true;
             });
 
-            services.AddDbContext<STREAMINGDBContext>(options => options.UseSqlServer
-                (Configuration.GetConnectionString("WebAPIConn")));
-
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-            {
-                options.Audience = Configuration["AAD:ResourceID"];
-                options.Authority = $"{Configuration["AAD:InstanceID"]}{Configuration["AAD:TenantID"]}";
-            });
-
-            services.AddControllers().AddNewtonsoftJson(s =>
-            {
-                s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            });
-
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-            services.AddTransient<IWebAPIRepo, SQLWebAPIRepo>();
-
             // requires
             // using Microsoft.AspNetCore.Identity.UI.Services;
             // using WebPWrecover.Services;
