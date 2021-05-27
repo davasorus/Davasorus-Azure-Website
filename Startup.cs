@@ -1,6 +1,7 @@
 using Azure.Core.Extensions;
 using Azure.Storage.Blobs;
 using Azure.Storage.Queues;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -10,9 +11,13 @@ using Microsoft.Extensions.Azure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json.Serialization;
 using StreamWebPage.Data;
+using StreamWebPage.Models;
 using StreamWebPage.Services;
 using System;
+using WebAPI.Data;
+using WebAPI.Models;
 
 namespace StreamWebPage
 {
@@ -42,6 +47,24 @@ namespace StreamWebPage
                 o.ExpireTimeSpan = TimeSpan.FromDays(5);
                 o.SlidingExpiration = true;
             });
+
+            services.AddDbContext<STREAMINGDBContext>(options => options.UseSqlServer
+                (Configuration.GetConnectionString("WebAPIConn")));
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.Audience = Configuration["AAD:ResourceID"];
+                options.Authority = $"{Configuration["AAD:InstanceID"]}{Configuration["AAD:TenantID"]}";
+            });
+
+            services.AddControllers().AddNewtonsoftJson(s =>
+            {
+                s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            });
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddTransient<IWebAPIRepo, SQLWebAPIRepo>();
 
             // requires
             // using Microsoft.AspNetCore.Identity.UI.Services;
