@@ -23,6 +23,12 @@
       "type": "storage.azure",
       "connectionId": "AZUREDBCONN-Storage",
       "secretStore": "AzureKeyVault"
+    },
+    "identityapp1": {
+      "type": "identityapp",
+      "connectionId": "",
+      "suggestion": "true",
+      "ignored": "true"
     }
   }
 }
